@@ -432,7 +432,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, '0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23', 18, 'WCRO', 'Wrapped CRO'), _WETH[ChainId.CASSINI] = /*#__PURE__*/new Token(ChainId.CASSINI, '0xF495a0Cf46281C36Cd5100E22009B4D5D28B12df', 18, 'WCRO', 'Wrapped CRO'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, '0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23', 18, 'WCRO', 'Wrapped CRO'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, '0x873c905681Fb587cc12a29DA5CD3c447bE61F146', 18, 'WCRO', 'Wrapped CRO'), _WETH[ChainId.CASSINI] = /*#__PURE__*/new Token(ChainId.CASSINI, '0xF495a0Cf46281C36Cd5100E22009B4D5D28B12df', 18, 'WCRO', 'Wrapped CRO'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
