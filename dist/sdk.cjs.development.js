@@ -19,10 +19,10 @@ var providers = require('@ethersproject/providers');
 var _FACTORY_ADDRESS, _INIT_CODE_HASH, _SOLIDITY_TYPE_MAXIMA;
 
 (function (ChainId) {
-  ChainId[ChainId["MAINNET"] = 25] = "MAINNET";
-  ChainId[ChainId["TESTNET"] = 338] = "TESTNET";
-  ChainId[ChainId["CASSINI"] = 339] = "CASSINI";
-  ChainId[ChainId["MUMBAI"] = 80001] = "MUMBAI";	//Added the Mumbai chain ID
+  // MAINNET = 25,
+  // TESTNET = 338,
+  // CASSINI = 339,
+  ChainId[ChainId["MUMBAI"] = 80001] = "MUMBAI";
 })(exports.ChainId || (exports.ChainId = {}));
 
 (function (TradeType) {
@@ -36,11 +36,8 @@ var _FACTORY_ADDRESS, _INIT_CODE_HASH, _SOLIDITY_TYPE_MAXIMA;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(exports.Rounding || (exports.Rounding = {}));
 
-// Added the UniswapV2 Contract on Polygon Testnet instead of the V1 Factory_Address
-var FACTORY_ADDRESS = (_FACTORY_ADDRESS = {}, _FACTORY_ADDRESS[exports.ChainId.MAINNET] = '0xb89E86701C4Fe4a22a16914e3b0Df53eA4BE771b', _FACTORY_ADDRESS[exports.ChainId.TESTNET] = '', _FACTORY_ADDRESS[exports.ChainId.CASSINI] = '0x2172E9c0E32856d4F2E07c58482DE2068f89DF90', _FACTORY_ADDRESS[exports.ChainId.MUMBAI] = '0x1Dda0f0843F13efDF4e318e5Fa176b56862b5E5e',_FACTORY_ADDRESS);
-
-// Added the MUMBAI chainID and kept the contract empty for verification.
-var INIT_CODE_HASH = (_INIT_CODE_HASH = {}, _INIT_CODE_HASH[exports.ChainId.MAINNET] = '0x05711465afc4c0550521d019458c5d70d182caa4d86702d312fc1b706ae048df', _INIT_CODE_HASH[exports.ChainId.TESTNET] = '', _INIT_CODE_HASH[exports.ChainId.CASSINI] = '0x451e8f77e1da440b9c36f90619e5278313cd8049e8fb1c61475df3f28d41a28a', _INIT_CODE_HASH[exports.ChainId.MUMBAI] = '0x411d39951368a5a983a543e407b58704444c391e118f94df3eb826c9ae40dfb7',_INIT_CODE_HASH);
+var FACTORY_ADDRESS = (_FACTORY_ADDRESS = {}, _FACTORY_ADDRESS[exports.ChainId.MUMBAI] = '0x1Dda0f0843F13efDF4e318e5Fa176b56862b5E5e', _FACTORY_ADDRESS);
+var INIT_CODE_HASH = (_INIT_CODE_HASH = {}, _INIT_CODE_HASH[exports.ChainId.MUMBAI] = '0x411d39951368a5a983a543e407b58704444c391e118f94df3eb826c9ae40dfb7', _INIT_CODE_HASH);
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
 
 var ZERO = /*#__PURE__*/JSBI.BigInt(0);
@@ -436,9 +433,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-
-//Added the WETH for the MUMBAI Polygon 
-var WETH = (_WETH = {}, _WETH[exports.ChainId.MAINNET] = /*#__PURE__*/new Token(exports.ChainId.MAINNET, '0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23', 18, 'WCRO', 'Wrapped CRO'), _WETH[exports.ChainId.TESTNET] = /*#__PURE__*/new Token(exports.ChainId.TESTNET, '0x873c905681Fb587cc12a29DA5CD3c447bE61F146', 18, 'WCRO', 'Wrapped CRO'), _WETH[exports.ChainId.CASSINI] = /*#__PURE__*/new Token(exports.ChainId.CASSINI, '0xF495a0Cf46281C36Cd5100E22009B4D5D28B12df',  18, 'WCRO', 'Wrapped CRO'), _WETH[exports.ChainId.MUMBAI] = /*#__PURE__*/new Token(exports.ChainId.MUMBAI, '0x1BF92e2C7b6326C6194CE08e77160C88e7B9D1d6',  18, 'WCRO', 'Wrapped CRO'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.MUMBAI] = /*#__PURE__*/new Token(exports.ChainId.MUMBAI, '0x1BF92e2C7b6326C6194CE08e77160C88e7B9D1d6', 18, 'WCRO', 'Wrapped CRO'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
@@ -761,7 +756,7 @@ var Pair = /*#__PURE__*/function () {
   function Pair(tokenAmountA, tokenAmountB) {
     var tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
     ? [tokenAmountA, tokenAmountB] : [tokenAmountB, tokenAmountA];
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'ANN-LP', 'Annex LP');
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'UNI V2', 'Uniswap V2');
     this.tokenAmounts = tokenAmounts;
   }
 
@@ -8693,7 +8688,7 @@ var ERC20 = [
 ];
 
 var _TOKEN_DECIMALS_CACHE;
-var TOKEN_DECIMALS_CACHE = (_TOKEN_DECIMALS_CACHE = {}, _TOKEN_DECIMALS_CACHE[exports.ChainId.MAINNET] = {
+var TOKEN_DECIMALS_CACHE = (_TOKEN_DECIMALS_CACHE = {}, _TOKEN_DECIMALS_CACHE[exports.ChainId.MUMBAI] = {
   '0xE0B7927c4aF23765Cb51314A0E0521A9645F0E2A': 9 // DGD
 
 }, _TOKEN_DECIMALS_CACHE);
