@@ -57,19 +57,20 @@ export function currencyEquals(currencyA: Currency, currencyB: Currency): boolea
 }
 
 export const WETH = {
-  [ChainId.MAINNET]: new Token(
-    ChainId.MAINNET,
-    '0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23',
-    18,
-    'WCRO',
-    'Wrapped CRO'
-  ),
-  [ChainId.TESTNET]: new Token(
-    ChainId.TESTNET,
-    '0x873c905681Fb587cc12a29DA5CD3c447bE61F146',
-    18,
-    'WCRO',
-    'Wrapped CRO'
-  ),
-  [ChainId.CASSINI]: new Token(ChainId.CASSINI, '0xF495a0Cf46281C36Cd5100E22009B4D5D28B12df', 18, 'WCRO', 'Wrapped CRO')
+  // [ChainId.MAINNET]: new Token(
+  //   ChainId.MAINNET,
+  //   '0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23',
+  //   18,
+  //   'WCRO',
+  //   'Wrapped CRO'
+  // ),
+  // [ChainId.TESTNET]: new Token(
+  //   ChainId.TESTNET,
+  //   '0x873c905681Fb587cc12a29DA5CD3c447bE61F146',
+  //   18,
+  //   'WCRO',
+  //   'Wrapped CRO'
+  // ),
+  // [ChainId.CASSINI]: new Token(ChainId.CASSINI, '0xF495a0Cf46281C36Cd5100E22009B4D5D28B12df', 18, 'WCRO', 'Wrapped CRO'),
+  [ChainId.MUMBAI]: new Token(ChainId.MUMBAI, '0x1BF92e2C7b6326C6194CE08e77160C88e7B9D1d6', 18, 'WCRO', 'Wrapped CRO')
 }
