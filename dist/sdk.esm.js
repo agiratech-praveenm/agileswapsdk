@@ -18,6 +18,7 @@ var ChainId;
   ChainId[ChainId["MAINNET"] = 25] = "MAINNET";
   ChainId[ChainId["TESTNET"] = 338] = "TESTNET";
   ChainId[ChainId["CASSINI"] = 339] = "CASSINI";
+  ChainId[ChainId["MUMBAI"] = 80001] = "MUMBAI";	//Added the Mumbai chain ID
 })(ChainId || (ChainId = {}));
 
 var TradeType;
@@ -35,8 +36,15 @@ var Rounding;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(Rounding || (Rounding = {}));
 
-var FACTORY_ADDRESS = (_FACTORY_ADDRESS = {}, _FACTORY_ADDRESS[ChainId.MAINNET] = '0xb89E86701C4Fe4a22a16914e3b0Df53eA4BE771b', _FACTORY_ADDRESS[ChainId.TESTNET] = '', _FACTORY_ADDRESS[ChainId.CASSINI] = '0x2172E9c0E32856d4F2E07c58482DE2068f89DF90', _FACTORY_ADDRESS);
-var INIT_CODE_HASH = (_INIT_CODE_HASH = {}, _INIT_CODE_HASH[ChainId.MAINNET] = '0x05711465afc4c0550521d019458c5d70d182caa4d86702d312fc1b706ae048df', _INIT_CODE_HASH[ChainId.TESTNET] = '', _INIT_CODE_HASH[ChainId.CASSINI] = '0x451e8f77e1da440b9c36f90619e5278313cd8049e8fb1c61475df3f28d41a28a', _INIT_CODE_HASH);
+// Added the UniswapV2 Contract on Polygon Testnet instead of the V1 Factory_Address
+// Added the MUMBAI chainID and kept the contract empty for verification.
+// var FACTORY_ADDRESS = (_FACTORY_ADDRESS = {}, _FACTORY_ADDRESS[exports.ChainId.MAINNET] = '0xb89E86701C4Fe4a22a16914e3b0Df53eA4BE771b', _FACTORY_ADDRESS[exports.ChainId.TESTNET] = '', _FACTORY_ADDRESS[exports.ChainId.CASSINI] = '0x2172E9c0E32856d4F2E07c58482DE2068f89DF90', _FACTORY_ADDRESS[exports.ChainId.MUMBAI] = '0x1Dda0f0843F13efDF4e318e5Fa176b56862b5E5e',_FACTORY_ADDRESS);
+// var INIT_CODE_HASH = (_INIT_CODE_HASH = {}, _INIT_CODE_HASH[exports.ChainId.MAINNET] = '0x05711465afc4c0550521d019458c5d70d182caa4d86702d312fc1b706ae048df', _INIT_CODE_HASH[exports.ChainId.TESTNET] = '', _INIT_CODE_HASH[exports.ChainId.CASSINI] = '0x451e8f77e1da440b9c36f90619e5278313cd8049e8fb1c61475df3f28d41a28a', _INIT_CODE_HASH[exports.ChainId.CASSINI] = '',_INIT_CODE_HASH);
+
+var FACTORY_ADDRESS = (_FACTORY_ADDRESS = {}, _FACTORY_ADDRESS[ChainId.MAINNET] = '0xb89E86701C4Fe4a22a16914e3b0Df53eA4BE771b', _FACTORY_ADDRESS[ChainId.TESTNET] = '', _FACTORY_ADDRESS[ChainId.CASSINI] = '0x2172E9c0E32856d4F2E07c58482DE2068f89DF90', _FACTORY_ADDRESS[ChainId.MUMBAI] = '0x1Dda0f0843F13efDF4e318e5Fa176b56862b5E5e',_FACTORY_ADDRESS);
+var INIT_CODE_HASH = (_INIT_CODE_HASH = {}, _INIT_CODE_HASH[ChainId.MAINNET] = '0x05711465afc4c0550521d019458c5d70d182caa4d86702d312fc1b706ae048df', _INIT_CODE_HASH[ChainId.TESTNET] = '', _INIT_CODE_HASH[ChainId.CASSINI] = '0x451e8f77e1da440b9c36f90619e5278313cd8049e8fb1c61475df3f28d41a28a', _INIT_CODE_HASH[ChainId.MUMBAI] = '0xbdbd836d1a7f3fba5f6ecdfa2d660c535e669332b78ca81f9bec6bd53b7e4bb6',_INIT_CODE_HASH);
+
+
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
 
 var ZERO = /*#__PURE__*/JSBI.BigInt(0);
@@ -432,7 +440,9 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, '0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23', 18, 'WCRO', 'Wrapped CRO'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, '0x873c905681Fb587cc12a29DA5CD3c447bE61F146', 18, 'WCRO', 'Wrapped CRO'), _WETH[ChainId.CASSINI] = /*#__PURE__*/new Token(ChainId.CASSINI, '0xF495a0Cf46281C36Cd5100E22009B4D5D28B12df', 18, 'WCRO', 'Wrapped CRO'), _WETH);
+
+//Added the WETH contract for the MUMBAI Polygon 
+var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, '0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23', 18, 'WCRO', 'Wrapped CRO'), _WETH[ChainId.TESTNET] = /*#__PURE__*/new Token(ChainId.TESTNET, '0x873c905681Fb587cc12a29DA5CD3c447bE61F146', 18, 'WCRO', 'Wrapped CRO'), _WETH[ChainId.CASSINI] = /*#__PURE__*/new Token(ChainId.CASSINI, '0xF495a0Cf46281C36Cd5100E22009B4D5D28B12df', 18, 'WCRO', 'Wrapped CRO'), _WETH[ChainId.MUMBAI] = /*#__PURE__*/new Token(ChainId.MUMBAI, '0x1BF92e2C7b6326C6194CE08e77160C88e7B9D1d6',  18, 'WCRO', 'Wrapped CRO'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);

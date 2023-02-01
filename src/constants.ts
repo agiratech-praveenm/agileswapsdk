@@ -4,9 +4,10 @@ import JSBI from 'jsbi'
 export type BigintIsh = JSBI | bigint | string
 
 export enum ChainId {
-  MAINNET = 25,
-  TESTNET = 338,
-  CASSINI = 339
+  // MAINNET = 25,
+  // TESTNET = 338,
+  // CASSINI = 339,
+  MUMBAI = 80001
 }
 
 export enum TradeType {
@@ -21,15 +22,17 @@ export enum Rounding {
 }
 
 export const FACTORY_ADDRESS = {
-  [ChainId.MAINNET]: '0xb89E86701C4Fe4a22a16914e3b0Df53eA4BE771b',
-  [ChainId.TESTNET]: '',
-  [ChainId.CASSINI]: '0x2172E9c0E32856d4F2E07c58482DE2068f89DF90'
+  // [ChainId.MAINNET]: '0xb89E86701C4Fe4a22a16914e3b0Df53eA4BE771b',
+  // [ChainId.TESTNET]: '',
+  // [ChainId.CASSINI]: '0x2172E9c0E32856d4F2E07c58482DE2068f89DF90'
+  [ChainId.MUMBAI]: '0x1Dda0f0843F13efDF4e318e5Fa176b56862b5E5e'
 }
 
 export const INIT_CODE_HASH = {
-  [ChainId.MAINNET]: '0x05711465afc4c0550521d019458c5d70d182caa4d86702d312fc1b706ae048df',
-  [ChainId.TESTNET]: '',
-  [ChainId.CASSINI]: '0x451e8f77e1da440b9c36f90619e5278313cd8049e8fb1c61475df3f28d41a28a',
+  // [ChainId.MAINNET]: '0x05711465afc4c0550521d019458c5d70d182caa4d86702d312fc1b706ae048df',
+  // [ChainId.TESTNET]: '',
+  // [ChainId.CASSINI]: '0x451e8f77e1da440b9c36f90619e5278313cd8049e8fb1c61475df3f28d41a28a',
+  [ChainId.MUMBAI]:'0x411d39951368a5a983a543e407b58704444c391e118f94df3eb826c9ae40dfb7' 
 }
 
 export const MINIMUM_LIQUIDITY = JSBI.BigInt(1000)
